@@ -162,6 +162,14 @@ input{
     transform: scale(1.05);
 }
 
+.red{
+    background-color: var(--primary);
+}
+
+.green{
+    background-color: rgb(41, 185, 101);
+}
+
 .modal-buttons{
     text-align: center;
     margin-top: 1rem;

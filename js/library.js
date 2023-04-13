@@ -27,8 +27,12 @@ function addBookToLibrary(name, author, pages, read) {
   const readEl = document.createElement('button');
   const removeEl = document.createElement('button');
 
-  readEl.classList.add('btn-primary');
   removeEl.classList.add('btn-primary');
+  if (read === 'Read') {
+    readEl.classList = 'btn-primary green';
+  } else {
+    readEl.classList = 'btn-primary red';
+  }
 
   nameEl.textContent = name;
   authorEl.textContent = author;
@@ -73,9 +77,11 @@ function changeReadStatus(e) {
   if (myLibrary[bookIndex].read == 'Read') {
     myLibrary[bookIndex].read = 'Unread';
     e.target.textContent = 'Unread';
+    e.target.classList = 'btn-primary red';
   } else {
     myLibrary[bookIndex].read = 'Read';
     e.target.textContent = 'Read';
+    e.target.classList = 'btn-primary green';
   }
 }
 
