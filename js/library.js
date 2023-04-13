@@ -6,6 +6,9 @@ const modal = document.querySelector('#add-book-modal');
 const bgBlock = document.querySelector('#background-block');
 const closeModalBtn = document.querySelector('#close-modal');
 const submitBook = document.querySelector('#submit-book');
+const bookName = document.querySelector('#book-name');
+const bookAuthor = document.querySelector('#book-author');
+const bookPages = document.querySelector('#book-pages');
 
 function Book(name, author, pages, read) {
   this.name = name;
@@ -77,6 +80,9 @@ function changeReadStatus(e) {
 
 // Add book modal
 function openModal() {
+  bookName.value = '';
+  bookAuthor.value = '';
+  bookPages.value = '';
   modal.classList.toggle('hide');
   bgBlock.classList.toggle('hide');
 }
@@ -87,7 +93,15 @@ function closeModal(e) {
   bgBlock.classList.toggle('hide');
 }
 
-function submitToLibrary() {}
+function submitToLibrary(e) {
+  e.preventDefault();
+  const name = bookName.value;
+  const author = bookAuthor.value;
+  const pages = bookPages.value;
+  addBookToLibrary(name, author, pages, 'Read');
+  modal.classList.toggle('hide');
+  bgBlock.classList.toggle('hide');
+}
 
 addBookBtn.addEventListener('click', openModal);
 closeModalBtn.addEventListener('click', closeModal);
