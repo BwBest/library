@@ -5,15 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Library</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/library.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>My Library</h1>
     <div id="books">
-        
+        <div id="header">
+            <h3>Name</h3>
+            <h3>Author</h3>
+            <h3>Pages</h3>
+            <h3>Status</h3>
+            <button id="add-book-btn" class="btn-primary">Add a Book</button>
+        </div>
+        <div id="book1" class="book-item">
+            <h4>Animal Farm</h4>
+            <h4>George Orwell</h4>
+            <h4>152</h4>
+            <button class="btn-primary">Unread</button>
+            <button class="btn-primary">Remove</button>
+        </div>
+        <div id="book1" class="book-item">
+            <h4>Animal Farm</h4>
+            <h4>George Orwell</h4>
+            <h4>152</h4>
+            <button class="btn-primary">Unread</button>
+            <button class="btn-primary">Remove</button>
+        </div>
+        <div id="book1" class="book-item">
+            <h4>Animal Farm</h4>
+            <h4>George Orwell</h4>
+            <h4>152</h4>
+            <button class="btn-primary">Unread</button>
+            <button class="btn-primary">Remove</button>
+        </div>
+        <div id="book1" class="book-item">
+            <h4>Animal Farm</h4>
+            <h4>George Orwell</h4>
+            <h4>152</h4>
+            <button class="btn-primary">Unread</button>
+            <button class="btn-primary">Remove</button>
+        </div>
     </div>
-    <button id="add-book-btn">Add a Book</button>
+
+
     <div id="add-book-modal" class="hide">
-        <button id="close-modal">X</button>
         <form action="">
             <div>
                 <label for="book-name">Book Name</label>
@@ -27,8 +66,12 @@
                 <label for="book-pages">Pages</label>
                 <input type="text" id="book-pages">
             </div>
-
+            <div class="modal-buttons">
+                <button id="close-modal" class="btn-border">Cancel</button>
+                <button id="submit-book" class="btn-primary btn-secondary">Add to Library</button>
+            </div>
         </form>
     </div>
+    <div id="background-block" class="hide"></div>
 </body>
 </html>
