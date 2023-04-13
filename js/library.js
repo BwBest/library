@@ -10,6 +10,21 @@ const bookName = document.querySelector('#book-name');
 const bookAuthor = document.querySelector('#book-author');
 const bookPages = document.querySelector('#book-pages');
 
+loadFromStorage();
+
+function loadFromStorage() {
+  const localLibrary = localStorage.getItem('myLibrary');
+  if (localLibrary) {
+    myLibrary = JSON.parse(localLibrary);
+    renderLibrary();
+    console.log(myLibrary);
+  }
+}
+
+function saveToLocalStorage() {
+  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+}
+
 function Book(name, author, pages, read) {
   this.name = name;
   this.author = author;
@@ -52,8 +67,8 @@ function addBookToLibrary(name, author, pages, read) {
 
   const bookObj = new Book(name, author, pages, read);
   myLibrary.push(bookObj);
-
   divEl.setAttribute('data-id', myLibrary.length - 1);
+  saveToLocalStorage();
 }
 
 function renderLibrary() {
@@ -83,6 +98,7 @@ function changeReadStatus(e) {
     e.target.textContent = 'Read';
     e.target.classList = 'btn-primary green';
   }
+  saveToLocalStorage();
 }
 
 // Add book modal
@@ -114,8 +130,8 @@ addBookBtn.addEventListener('click', openModal);
 closeModalBtn.addEventListener('click', closeModal);
 submitBook.addEventListener('click', submitToLibrary);
 
-addBookToLibrary('Kitap-1', 'BF', '485', 'Read');
+/* addBookToLibrary('Kitap-1', 'BF', '485', 'Read');
 addBookToLibrary('Kitap-2', 'BF', '548', 'Read');
 addBookToLibrary('Kitap-3', 'BF', '846', 'Read');
 addBookToLibrary('Kitap-4', 'BF', '135', 'Read');
-renderLibrary();
+renderLibrary(); */
