@@ -72,10 +72,11 @@ function changeReadStatus(e) {
   const bookIndex = e.target.parentElement.getAttribute('data-id');
   if (myLibrary[bookIndex].read == 'Read') {
     myLibrary[bookIndex].read = 'Unread';
+    e.target.textContent = 'Unread';
   } else {
     myLibrary[bookIndex].read = 'Read';
+    e.target.textContent = 'Read';
   }
-  renderLibrary();
 }
 
 // Add book modal
