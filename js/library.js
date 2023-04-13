@@ -1,6 +1,11 @@
 let myLibrary = [];
 
 const booksDiv = document.querySelector('#books');
+const addBookBtn = document.querySelector('#add-book-btn');
+const modal = document.querySelector('#add-book-modal');
+const bgBlock = document.querySelector('#background-block');
+const closeModalBtn = document.querySelector('#close-modal');
+const submitBook = document.querySelector('#submit-book');
 
 function Book(name, author, pages, read) {
   this.name = name;
@@ -47,14 +52,7 @@ function addBookToLibrary(name, author, pages, read) {
 function renderLibrary() {
   const oldLibrary = myLibrary;
   myLibrary = [];
-  booksDiv.innerHTML = `        
-  <div id="header">
-    <h3>Name</h3>
-    <h3>Author</h3>
-    <h3>Pages</h3>
-    <h3>Status</h3>
-    <button id="add-book-btn" class="btn-primary">Add a Book</button>
-  </div>`;
+  booksDiv.innerHTML = ``;
   for (let item of oldLibrary) {
     addBookToLibrary(item.name, item.author, item.pages, item.read);
     console.log(item);
@@ -76,6 +74,24 @@ function changeReadStatus(e) {
   }
   renderLibrary();
 }
+
+// Add book modal
+function openModal() {
+  modal.classList.toggle('hide');
+  bgBlock.classList.toggle('hide');
+}
+
+function closeModal(e) {
+  e.preventDefault();
+  modal.classList.toggle('hide');
+  bgBlock.classList.toggle('hide');
+}
+
+function submitToLibrary() {}
+
+addBookBtn.addEventListener('click', openModal);
+closeModalBtn.addEventListener('click', closeModal);
+submitBook.addEventListener('click', submitToLibrary);
 
 addBookToLibrary('Kitap-1', 'BF', '485', 'Read');
 addBookToLibrary('Kitap-2', 'BF', '548', 'Read');

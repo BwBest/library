@@ -83,17 +83,21 @@ input{
     align-items: center;
     justify-content: center;
     margin: auto;
-    margin-top: 5rem;
 }
 
-#books #header{
+#header{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px; 
 
-    min-width: 100%;
+    width: 80%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 5rem;
     margin-bottom: 1rem;
 
     font-size: 1.5rem;
